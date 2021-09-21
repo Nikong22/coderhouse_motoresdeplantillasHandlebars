@@ -1,5 +1,4 @@
 const express = require('express');
-const handlebars = require('express-handlebars');
 const productos = require('./productos.js');
 
 class Funciones {
@@ -88,18 +87,8 @@ router.delete("/productos/borrar/:id", (req, res) => {
   res.status(200).end();
 });
 
-app.engine(
-    "hbs",
-    handlebars({
-        extname: ".hbs",
-        defaultLayout: "index.hbs",
-        layoutsDir: __dirname + "/views/layouts",
-        partialsDir: __dirname + "/views/partials"
-    })
-);
-
 app.set('views', './views'); // especifica el directorio de vistas
-app.set('view engine', 'hbs'); // registra el motor de plantillas
+app.set('view engine', 'ejs'); // registra el motor de plantillas
 
 app.get('/productos/vista', function(req, res) {
   console.log(productos)
