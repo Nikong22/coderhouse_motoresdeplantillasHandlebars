@@ -1,0 +1,22 @@
+html
+    head
+        title='Mi primer plantilla de PUG' 
+        link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css')
+    body
+        if (productos.length)
+            h1 Vista de productos
+            table.table.table-dark.table-hover
+                tr
+                    th Id
+                    th Producto
+                    th Precio
+                    th Imagen
+                each producto in productos
+                    tr
+                        td= producto.id
+                        td= producto.titulo
+                        td= producto.precio
+                        td
+                            img(src=producto.url, alt="url")
+        else 
+            label.badge.bg-warning No se encontraron productos

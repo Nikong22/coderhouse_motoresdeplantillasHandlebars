@@ -88,7 +88,7 @@ router.delete("/productos/borrar/:id", (req, res) => {
 });
 
 app.set('views', './views'); // especifica el directorio de vistas
-app.set('view engine', 'ejs'); // registra el motor de plantillas
+app.set('view engine', 'pug'); // registra el motor de plantillas
 
 app.get('/productos/vista', function(req, res) {
   console.log(productos)
@@ -98,5 +98,5 @@ app.get('/productos/vista', function(req, res) {
   }else{
     tieneDatos = false
   }
-  res.render('main', { productos: productos, listExists: tieneDatos });
+  res.render('main.pug', { productos: productos, listExists: tieneDatos });
 });
